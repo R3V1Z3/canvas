@@ -1,0 +1,314 @@
+body, html {
+    height: 100%;
+    width: 100%;
+    background-color: #fff;
+    overflow: hidden;
+    font-family: 'Gochi Hand', cursive;
+}
+
+/* CANVAS */
+
+#canvas {
+    width: -webkit-calc(100% - 20px);width: -moz-calc(100% - 20px);
+    width: calc(100% - 20px);
+    
+    height: -webkit-calc(100% - 20px);
+    height: -moz-calc(100% - 20px);
+    height: calc(100% - 20px);
+    
+    margin: 0 auto;
+    position: absolute;
+    color: #000;
+    font-family: Courier ,monospace;
+    font-size: 18px;
+    overflow: auto;
+}
+
+.canvas-background {
+    width: 100%;
+    height: 100%;
+    background-image: url('../images/grid.png');
+    opacity:0.4;
+    filter:alpha(opacity=40);
+}
+
+#debug {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    height: 100px;
+    width: 300px;
+    background: rgba(0, 0, 0, 0.80);
+    padding: 5px;
+    
+    font-size: 14px;
+    color: #fff;
+    overflow: auto;
+}
+
+h1, h3, h4, h5, h6 {
+    font-family: 'Gochi Hand', cursive;
+}
+
+h2 {
+    font-size: 18px;
+    font-family: 'Gochi Hand', cursive;
+}
+
+/* TOOLBOX */
+
+#toolbox {
+    z-index: 1;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    width: 190px;
+    height: 500px;
+    background-color: #eee;
+    border: 1px;
+    -webkit-box-shadow:  8px 8px 8px 1px rgba(0, 0, 0, .25);
+    box-shadow:  8px 8px 8px 1px rgba(0, 0, 0, .25);
+}
+
+.toolbox-title {
+    position: absolute;
+    height: 30px;
+    width: 100%;
+    
+    border-bottom: 2px dashed #000;
+    
+    text-shadow: 1px 1px 6px #aaa;
+    filter: dropshadow(color=#555, offx=1, offy=1);
+}
+
+.toolbox-title h2 {
+    padding-left: 4px;
+    margin-top: 4px;
+}
+
+/* TOOLBOX - Module List */
+
+.modules-list {
+    margin-top: 30px;
+    margin-left: 2px;
+    width: -webkit-calc(100% - 4px);
+    width: -moz-calc(100% - 4px);
+    width: calc(100% - 4px);
+    
+    height: -webkit-calc(100% - 46px);
+    height: -moz-calc(100% - 46px);
+    height: calc(100% - 46px);
+    
+    overflow: auto;
+}
+
+/* MODULES */
+
+.module {
+    display: block;
+    float: left;
+    padding: 3px;
+    padding-top: 20px;
+    border: 2px solid rgba(0,0,0,0);
+    height: 30px;
+    width: 30px;
+    margin: 5px;
+    overflow: hidden;
+    font-family: 'Gochi Hand', cursive;
+}
+
+.module:hover {
+    border: 2px dashed #000;
+    -webkit-box-shadow:  6px 6px 8px 1px rgba(0, 0, 0, .1);
+    box-shadow:  4px 4px 8px 1px rgba(0, 0, 0, .1);
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+.node-drag {
+    z-index: 5;
+    position: absolute;
+    background-color: red;
+    height: 100px;
+    width: 100px;
+}
+
+/* MODULE INPUTS AND OUTPUTS */
+
+.module-input {
+    display: block;
+    float: left;
+    height: 14px;
+    width: 14px;
+    border: 2px solid #000;
+    background: #fff;
+    border-radius: 8px;
+}
+
+.module-output {
+    display: block;
+    float: left;
+    height: 14px;
+    width: 14px;
+    border: 2px solid #000;
+    background: #fff;
+    border-radius: 8px;
+}
+
+.module-input:hover {
+    background-color: lightgrey;
+}
+
+.module-output:hover {
+    background-color: lightgrey;
+}
+
+/* NOTE MODULE */
+
+.module-note {
+    height: 50px;
+    width: 100px;
+}
+
+.module-note textarea {
+    padding: 5px 5px 0px 5px;
+
+    width: -webkit-calc(100% - 14px);
+    width: -moz-calc(100% - 14px);
+    width: calc(100% - 14px);
+
+    height: 100%;
+    background-color: #ff0;
+    resize: none;
+    border: 2px solid #000;
+    
+    font-family: 'Gochi Hand', cursive;
+}
+
+/* NUMBER MODULE */
+
+.module-number {
+    height: 30px;
+    width: 80px;
+}
+
+.module-number .number {
+    border: 1px solid #000;
+    border-radius: 5px;
+    float: left;
+    display: block;
+}
+
+.module-number .module-output {
+    margin-top: 3px;
+}
+
+/* ADDITION MODULE */
+
+.module-addition {
+    height: 50px;
+    width: 60px;
+}
+
+.module-addition .module-canvas {
+    margin: 2px;
+    margin-top: -9px;
+    height: 18px;
+    width: 18px;
+    border: 1px solid #000;
+    border-radius: 5px;
+    float: left;
+    display: block;
+    background-color: #eee;
+}
+
+.module-addition h3 {
+    text-align: center;
+    margin-top: -8px;
+    font-size: 30px;
+    color: #000;
+}
+
+.module-addition .module-input {
+    margin-top: 3px;
+    clear: left;
+}
+
+.module-addition .module-output {
+    margin-top: -7px;
+}
+
+/* READOUT MODULE */
+
+.module-readout {
+    height: 30px;
+    width: 150px;
+}
+
+.module-readout .module-canvas {
+    margin: 2px;
+    height: 20px;
+    width: 83%;
+    border: 1px solid #000;
+    border-radius: 5px;
+    float: left;
+    display: block;
+    background-color: #000;
+    
+    text-align: center;
+    font-size: 14px;
+    color: #fff;
+}
+
+.module-readout .module-input {
+    margin-top: 3px;
+    clear: left;
+}
+
+/* jQuery UI */
+
+.ui-tooltip {
+    z-index: 5;
+    font-size: 14px;
+    max-width: 300px;
+    padding-left: 10px;
+    background-color: rgba(0, 0, 0, 0.75);
+    color: #fff;
+    font-family: 'Gochi Hand', cursive;
+    border-radius: 5px;
+}
+
+.ui-icon { width: 16px; height: 16px; background-image: url(../images/ui-icons_222222_256x240.png)/*{iconsContent}*/; }
+.ui-resizable { position: relative;}
+.ui-resizable-handle { position: absolute;font-size: 0.1px;z-index: 99999; display: block;}
+.ui-resizable-disabled .ui-resizable-handle, .ui-resizable-autohide .ui-resizable-handle { display: none; }
+.ui-resizable-n { cursor: n-resize; height: 7px; width: 100%; top: -5px; left: 0px; }
+.ui-resizable-s { cursor: s-resize; height: 7px; width: 100%; bottom: -5px; left: 0px; }
+.ui-resizable-e { cursor: e-resize; width: 7px; right: -5px; top: 0px; height: 100%; }
+.ui-resizable-w { cursor: w-resize; width: 7px; left: -5px; top: 0px; height: 100%; }
+.ui-resizable-se { cursor: se-resize; width: 12px; height: 12px; right: 1px; bottom: 1px; }
+.ui-resizable-sw { cursor: sw-resize; width: 9px; height: 9px; left: -5px; bottom: -5px; }
+.ui-resizable-nw { cursor: nw-resize; width: 9px; height: 9px; left: -5px; top: -5px; }
+.ui-resizable-ne { cursor: ne-resize; width: 9px; height: 9px; right: -5px; top: -5px;}
+.ui-icon-gripsmall-diagonal-se { background-position: -64px -224px; }
+
+/* SCROLLBARS */
+
+::-webkit-scrollbar {
+    width: 16px;
+}
+::-webkit-scrollbar-track {
+    background-color: #222;
+}
+::-webkit-scrollbar-thumb {
+    background-color: #aaa;
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+    border-right: 1px solid black;
+}
+::-webkit-scrollbar-button {
+    background-color: #aaa;
+    border-right: 1px solid black;
+}
+::-webkit-scrollbar-corner {
+    background-color: black;
+}
