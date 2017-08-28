@@ -27,7 +27,6 @@ body, html {
 .canvas-background {
     width: 100%;
     height: 100%;
-    background-image: url('../images/grid.png');
     opacity:0.4;
     filter:alpha(opacity=40);
 }
