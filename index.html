@@ -1,0 +1,31 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <link href="css/style.css" rel="stylesheet" type="text/css">
+        <script src="js/canvas.js"></script>
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+        <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.2/jquery-ui.min.js"></script>
+        
+        <!-- https://github.com/timmywil/jquery.panzoom 
+        <script src="/js/plugins/jquery.panzoom.min.js"></script> -->
+        
+        <link href='//fonts.googleapis.com/css?family=Schoolbell' rel='stylesheet' type='text/css'>
+        <link href='//fonts.googleapis.com/css?family=Gochi+Hand' rel='stylesheet' type='text/css'>
+
+        <script type="text/javascript">
+            $(document).ready(function() {
+                // create canvas
+                // need to make it more jquery-like
+                // $('#canvas').make_canvas();
+                var canvas = new Canvas($('#canvas'));
+                canvas.debug.hide();
+                $("#canvas").panzoom();
+            });
+        </script>
+    </head>
+    
+    <body>
+        <div id="canvas"></div>
+    </body>
+
+</html>
